@@ -1,6 +1,8 @@
+import colorNames from 'colornames';
 
-const InputColor = ({ colorValue, setColorValue }) => {
-    // const colorName = {input.value};
+const InputColor = ({ 
+    colorValue, setColorValue, setHexValue, isDarkText, setIsDarkText 
+}) => {
 
     return (
         <form onSubmit={(e) => e.preventDefault()}>
@@ -12,8 +14,17 @@ const InputColor = ({ colorValue, setColorValue }) => {
                 value={colorValue}
                 autoFocus
                 required
-                onChange={(e) => setColorValue(e.target.value)}
+                onChange={(e) => {
+                    setColorValue(e.target.value);
+                    setHexValue(colorNames(e.target.value));
+                }}
             />
+            <button
+                type="button"
+                onClick={() => setIsDarkText(!isDarkText)}
+            >
+            toggle text color
+            </button>
         </form>
     )
 }
