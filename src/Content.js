@@ -8,4 +8,8 @@ const Content = ({ colorValue }) => {
     )
 }
 
+Content.defaultProps = {
+    colorValue: "Empty Color Value"
+}
+
 export default Content;
